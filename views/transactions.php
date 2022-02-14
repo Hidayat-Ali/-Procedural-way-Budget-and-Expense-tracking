@@ -28,9 +28,12 @@
           <td><?= $transaction['Date'] ?> </td>
           <td><?= $transaction['check'] ?></td>
           <td><?= $transaction['Discription'] ?></td>
-          <td><?= $transaction['amount'] ?></td>
+          <?php if ($transaction['amount'] < 0) {  ?>
+            <td> <span class="text-success"><?= formater($transaction['amount']) ?> </span></td>
 
-
+          <?php }else{ ?>
+          <td> <?= formater($transaction['amount']) ?> </td>
+          <?php } ?>
         </tr>
       <?php } ?>
 
@@ -38,16 +41,16 @@
     <tfoot>
 
       <tr>
-        <th >Total Income:</th>
-        <td colspan="3"><?= $totals['totalIncome'] ?></td>
+        <th>Total Income:</th>
+        <td colspan="3"><?= formater($totals['totalIncome']) ?></td>
       </tr>
       <tr>
         <th>Total Expenses:</th>
-        <td colspan="3"><?= $totals['TotalExpenses'] ?></td>
+        <td colspan="3"><?= formater($totals['TotalExpenses']) ?></td>
       </tr>
       <tr>
         <th>New Total:</th>
-        <td  colspan="3"><?= $totals['newTotal'] ?></td>
+        <td><?= formater($totals['newTotal']) ?></td>
 
 
       </tr>

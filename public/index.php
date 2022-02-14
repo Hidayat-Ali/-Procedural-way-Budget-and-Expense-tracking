@@ -10,9 +10,10 @@ define('VIEWS_PATH', $root . 'views' . DIRECTORY_SEPARATOR);
 
 
 require APP_PATH ."App.php";
+require APP_PATH ."helpers.php";  
  $files = getTranscationFiles(FILES_PATH);
 // var_dump($files);
-$transctions=[];
+    $transctions=[];
 
 foreach($files as $file){
     $transctions = array_merge($transctions,getTransactions($file,'extractTransactions'));
